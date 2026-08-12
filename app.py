@@ -180,7 +180,7 @@ st.markdown("""
     hr { border-color: #E5E7EB; }
 
     /* Slider */
-    .stSlider label { color: white !important; }
+    [data-testid="stSidebar"] .stSlider label { color: white !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -833,8 +833,8 @@ elif page == "📊  Tableau de bord":
             height=300, showlegend=False,
             plot_bgcolor="white", paper_bgcolor="white",
             font=dict(color="#374151", size=11),
-            xaxis=dict(gridcolor="#F3F4F6"),
-            yaxis=dict(gridcolor="#F3F4F6", title="Patients/heure"),
+            xaxis=dict(gridcolor="#F3F4F6", tickfont=dict(color="#1A1A2E")),
+            yaxis=dict(gridcolor="#F3F4F6", title="Patients/heure", tickfont=dict(color="#1A1A2E")),
             margin=dict(t=20, b=20)
         )
         st.plotly_chart(fig, use_container_width=True)
@@ -867,8 +867,8 @@ elif page == "📊  Tableau de bord":
             height=300, showlegend=False,
             plot_bgcolor="white", paper_bgcolor="white",
             font=dict(color="#374151", size=11),
-            xaxis=dict(gridcolor="#F3F4F6"),
-            yaxis=dict(gridcolor="#F3F4F6", title="Wq (minutes)"),
+            xaxis=dict(gridcolor="#F3F4F6", tickfont=dict(color="#1A1A2E")),
+            yaxis=dict(gridcolor="#F3F4F6", title="Wq (minutes)", tickfont=dict(color="#1A1A2E")),
             margin=dict(t=20, b=20)
         )
         st.plotly_chart(fig2, use_container_width=True)
@@ -1102,8 +1102,8 @@ elif page == "⚙️  Simulateur M/M/c":
         height=280, plot_bgcolor="white", paper_bgcolor="white",
         font=dict(color="#374151"),
         xaxis=dict(title="Nb médecins", gridcolor="#F3F4F6",
-                   tickmode="linear", tick0=1, dtick=1),
-        yaxis=dict(title="Wq (min)", gridcolor="#F3F4F6"),
+                   tickmode="linear", tick0=1, dtick=1, tickfont=dict(color="#1A1A2E")),
+        yaxis=dict(title="Wq (min)", gridcolor="#F3F4F6", tickfont=dict(color="#1A1A2E")),
         margin=dict(t=20)
     )
     st.plotly_chart(fig_s, use_container_width=True)
@@ -1123,57 +1123,6 @@ elif page == "💡  Recommandations":
         </div>
     </div>
     """, unsafe_allow_html=True)
-
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">📊 Comparaison des scénarios simulés</div>',
-                unsafe_allow_html=True)
-
-    lambda_pic = 12.0
-    mu_base = 2.0
-    mu_amel = mu_base / 0.85
-
-    configs = [
-        ("Situation actuelle", 3, lambda_pic, mu_base),
-        ("+ 1 médecin au pic", 4, lambda_pic, mu_base),
-        ("+ 2 médecins au pic", 5, lambda_pic, mu_base),
-        ("Triage amélioré", 3, lambda_pic, mu_amel),
-        ("Scénario optimal", 5, lambda_pic, mu_amel),
-    ]
-
-    rows_sc, wq_sc, noms_sc = [], [], []
-    for nom, c, lam, mu in configs:
-        r = calcul_mmc(lam, mu, c)
-        wq_v = r["wq"] if r and r["stable"] else 120
-        wq_sc.append(wq_v)
-        noms_sc.append(nom)
-        rows_sc.append({
-            "Scénario": nom,
-            "Médecins": c,
-            "Wq (min)": f"{wq_v:.1f}",
-            "ρ (%)": f"{r['rho']*100:.0f}%" if r and r['stable'] else "—",
-            "Évaluation": "🔴 Critique" if wq_v > 40 else
-                          "🟡 À améliorer" if wq_v > 20 else "🟢 Bon"
-        })
-
-    st.dataframe(pd.DataFrame(rows_sc), use_container_width=True, hide_index=True)
-
-    couleurs_sc = ["#6B7280", "#3B82F6", "#10B981", "#F59E0B", "#8B5CF6"]
-    fig_rec = go.Figure(go.Bar(
-        x=noms_sc, y=wq_sc, marker_color=couleurs_sc,
-        text=[f"{w:.1f} min" for w in wq_sc], textposition="outside"
-    ))
-    fig_rec.add_hline(y=20, line_dash="dash", line_color="#EF4444",
-                      annotation_text="Cible 20 min")
-    fig_rec.update_layout(
-        height=350, showlegend=False,
-        plot_bgcolor="white", paper_bgcolor="white",
-        font=dict(color="#374151"),
-        xaxis=dict(gridcolor="#F3F4F6"),
-        yaxis=dict(title="Wq (min)", gridcolor="#F3F4F6"),
-        margin=dict(t=30)
-    )
-    st.plotly_chart(fig_rec, use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown('<div class="section-title">🎯 Recommandations prioritaires</div>',
                 unsafe_allow_html=True)
