@@ -19,26 +19,26 @@ st.set_page_config(
 st.markdown("""
 <style>
     /* Fond général blanc/gris clair */
-    .stApp {{
+    .stApp {
         background-color: #F0F2F5;
         color: #1A1A2E;
-    }}
+    }
 
     /* Sidebar bleu professionnel */
-    [data-testid="stSidebar"] {{
+    [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #1B3A6B 0%, #2563EB 100%);
         color: white;
-    }}
-    [data-testid="stSidebar"] * {{
+    }
+    [data-testid="stSidebar"] * {
         color: white !important;
-    }}
-    [data-testid="stSidebar"] .stRadio label {{
+    }
+    [data-testid="stSidebar"] .stRadio label {
         color: rgba(255,255,255,0.85) !important;
         font-size: 0.95rem;
-    }}
+    }
 
     /* Header principal */
-    .main-header {{
+    .main-header {
         background: white;
         border-radius: 16px;
         padding: 1.5rem 2rem;
@@ -47,139 +47,139 @@ st.markdown("""
         display: flex;
         align-items: center;
         gap: 1rem;
-    }}
-    .main-title {{
+    }
+    .main-title {
         font-size: 1.6rem;
         font-weight: 700;
         color: #1B3A6B;
         margin: 0;
-    }}
-    .main-subtitle {{
+    }
+    .main-subtitle {
         font-size: 0.85rem;
         color: #6B7280;
         margin: 0;
-    }}
+    }
 
     /* Cartes blanches */
-    .card {{
+    .card {
         background: white;
         border-radius: 16px;
         padding: 1.25rem 1.5rem;
         box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         margin-bottom: 1rem;
         border: 1px solid #F0F0F0;
-    }}
+    }
 
     /* KPI Cards */
-    .kpi-card {{
+    .kpi-card {
         background: white;
         border-radius: 16px;
         padding: 1.25rem;
         box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         border-left: 4px solid #2563EB;
         margin-bottom: 0.5rem;
-    }}
-    .kpi-card.green {{ border-left-color: #10B981; }}
-    .kpi-card.orange {{ border-left-color: #F59E0B; }}
-    .kpi-card.red {{ border-left-color: #EF4444; }}
-    .kpi-card.blue {{ border-left-color: #2563EB; }}
+    }
+    .kpi-card.green { border-left-color: #10B981; }
+    .kpi-card.orange { border-left-color: #F59E0B; }
+    .kpi-card.red { border-left-color: #EF4444; }
+    .kpi-card.blue { border-left-color: #2563EB; }
 
-    .kpi-value {{
+    .kpi-value {
         font-size: 2rem;
         font-weight: 700;
         color: #1B3A6B;
         line-height: 1;
-    }}
-    .kpi-label {{
+    }
+    .kpi-label {
         font-size: 0.8rem;
         color: #6B7280;
         margin-top: 0.3rem;
         font-weight: 500;
-    }}
-    .kpi-icon {{
+    }
+    .kpi-icon {
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
-    }}
+    }
 
     /* Section titles */
-    .section-title {{
+    .section-title {
         font-size: 1.1rem;
         font-weight: 700;
         color: #1B3A6B;
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
         border-bottom: 2px solid #E5E7EB;
-    }}
+    }
 
     /* Badges */
-    .badge {{
+    .badge {
         display: inline-block;
         padding: 3px 10px;
         border-radius: 20px;
         font-size: 0.75rem;
         font-weight: 600;
-    }}
-    .badge-green {{ background: #D1FAE5; color: #065F46; }}
-    .badge-orange {{ background: #FEF3C7; color: #92400E; }}
-    .badge-red {{ background: #FEE2E2; color: #991B1B; }}
-    .badge-blue {{ background: #DBEAFE; color: #1E40AF; }}
-    .badge-purple {{ background: #EDE9FE; color: #5B21B6; }}
+    }
+    .badge-green { background: #D1FAE5; color: #065F46; }
+    .badge-orange { background: #FEF3C7; color: #92400E; }
+    .badge-red { background: #FEE2E2; color: #991B1B; }
+    .badge-blue { background: #DBEAFE; color: #1E40AF; }
+    .badge-purple { background: #EDE9FE; color: #5B21B6; }
 
     /* Info boxes */
-    .info-box {{
+    .info-box {
         background: #EFF6FF;
         border: 1px solid #BFDBFE;
         border-radius: 12px;
         padding: 1rem 1.25rem;
         margin: 0.75rem 0;
         color: #1E40AF;
-    }}
-    .success-box {{
+    }
+    .success-box {
         background: #ECFDF5;
         border: 1px solid #A7F3D0;
         border-radius: 12px;
         padding: 1rem 1.25rem;
         margin: 0.75rem 0;
         color: #065F46;
-    }}
-    .warning-box {{
+    }
+    .warning-box {
         background: #FFFBEB;
         border: 1px solid #FDE68A;
         border-radius: 12px;
         padding: 1rem 1.25rem;
         margin: 0.75rem 0;
         color: #92400E;
-    }}
-    .danger-box {{
+    }
+    .danger-box {
         background: #FEF2F2;
         border: 1px solid #FECACA;
         border-radius: 12px;
         padding: 1rem 1.25rem;
         margin: 0.75rem 0;
         color: #991B1B;
-    }}
+    }
 
     /* Table style */
-    .stDataFrame {{
+    .stDataFrame {
         border-radius: 12px;
         overflow: hidden;
         border: 1px solid #E5E7EB;
-    }}
+    }
 
     /* Metrics */
-    [data-testid="metric-container"] {{
+    [data-testid="metric-container"] {
         background: white;
         border-radius: 12px;
         padding: 1rem;
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         border: 1px solid #F0F0F0;
-    }}
+    }
 
     /* Divider */
-    hr {{ border-color: #E5E7EB; }}
+    hr { border-color: #E5E7EB; }
 
     /* Slider */
-    .stSlider label {{ color: white !important; }}
+    .stSlider label { color: white !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -320,193 +320,193 @@ if "connecte" not in st.session_state:
 # ── PAGE DE CONNEXION ─────────────────────────────────────────────────────────
 if not st.session_state.connecte:
 
-    st.markdown(f"""
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-    .stApp {{{{ background: #F3F2FC !important; }}
-    [data-testid="stSidebar"] {{{{ display: none; }}
+    st.markdown("""
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+.stApp { background: #F3F2FC !important; }
+[data-testid="stSidebar"] { display: none; }
 
-    .login-wrapper {{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 90vh;
-        padding: 2rem 1rem;
-    }}
-    .login-card {{
-        display: flex;
-        width: 100%;
-        max-width: 900px;
-        border-radius: 28px;
-        overflow: hidden;
-        box-shadow: 0 20px 60px rgba(76,60,240,0.18);
-        background: white;
-    }}
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 2rem 1rem;
+}
+.login-card {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(76,60,240,0.18);
+    background: white;
+}
 
-    /* Colonne gauche */
-    .login-left {{
-        background: linear-gradient(135deg, #7C6BF0 0%, #4F5FE0 50%, #3B4CC7 100%);
-        padding: 2.5rem 2rem;
-        width: 45%;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }}
-    .login-left .circle1 {{
-        position: absolute; width: 220px; height: 220px;
-        border-radius: 50%; background: rgba(255,255,255,0.07);
-        top: -60px; right: -60px;
-    }}
-    .login-left .circle2 {{
-        position: absolute; width: 160px; height: 160px;
-        border-radius: 50%; background: rgba(255,255,255,0.05);
-        bottom: 40px; left: -50px;
-    }}
-    .login-logo {{ font-size: 2.2rem; margin-bottom: 0.5rem; }}
-    .login-brand {{
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.4rem; font-weight: 700;
-        color: white; margin-bottom: 0.2rem;
-    }}
-    .login-tagline {{
-        font-family: 'Poppins', sans-serif;
-        font-size: 1rem; font-weight: 600;
-        color: rgba(255,255,255,0.9);
-        margin: 1.5rem 0 0.5rem 0;
-    }}
-    .login-desc {{
-        font-family: 'Inter', sans-serif;
-        font-size: 0.82rem; color: rgba(255,255,255,0.75);
-        line-height: 1.6; margin-bottom: 1.5rem;
-    }}
-    .eye-illustration {{
-        text-align: center; font-size: 4rem;
-        margin: 1rem 0; opacity: 0.9;
-    }}
-    .stat-grid {{
-        display: grid; grid-template-columns: 1fr 1fr;
-        gap: 0.6rem; margin: 1rem 0;
-    }}
-    .stat-card {{
-        background: rgba(255,255,255,0.12);
-        border-radius: 12px; padding: 0.75rem;
-        backdrop-filter: blur(10px);
-    }}
-    .stat-val {{
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.1rem; font-weight: 700; color: white;
-    }}
-    .stat-lbl {{
-        font-family: 'Inter', sans-serif;
-        font-size: 0.7rem; color: rgba(255,255,255,0.7);
-        margin-top: 0.15rem;
-    }}
-    .login-address {{
-        font-family: 'Inter', sans-serif;
-        font-size: 0.75rem; color: rgba(255,255,255,0.65);
-        margin-top: auto; padding-top: 1rem;
-    }}
+/* Colonne gauche */
+.login-left {
+    background: linear-gradient(135deg, #7C6BF0 0%, #4F5FE0 50%, #3B4CC7 100%);
+    padding: 2.5rem 2rem;
+    width: 45%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.login-left .circle1 {
+    position: absolute; width: 220px; height: 220px;
+    border-radius: 50%; background: rgba(255,255,255,0.07);
+    top: -60px; right: -60px;
+}
+.login-left .circle2 {
+    position: absolute; width: 160px; height: 160px;
+    border-radius: 50%; background: rgba(255,255,255,0.05);
+    bottom: 40px; left: -50px;
+}
+.login-logo { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.login-brand {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem; font-weight: 700;
+    color: white; margin-bottom: 0.2rem;
+}
+.login-tagline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem; font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    margin: 1.5rem 0 0.5rem 0;
+}
+.login-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem; color: rgba(255,255,255,0.75);
+    line-height: 1.6; margin-bottom: 1.5rem;
+}
+.eye-illustration {
+    text-align: center; font-size: 4rem;
+    margin: 1rem 0; opacity: 0.9;
+}
+.stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.6rem; margin: 1rem 0;
+}
+.stat-card {
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 0.75rem;
+    backdrop-filter: blur(10px);
+}
+.stat-val {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem; font-weight: 700; color: white;
+}
+.stat-lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem; color: rgba(255,255,255,0.7);
+    margin-top: 0.15rem;
+}
+.login-address {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem; color: rgba(255,255,255,0.65);
+    margin-top: auto; padding-top: 1rem;
+}
 
-    /* Colonne droite */
-    .login-right {{
-        padding: 2.5rem 2rem;
-        width: 55%;
-        display: flex;
-        flex-direction: column;
-    }}
-    .tab-pills {{
-        display: flex; background: #EAE8FB;
-        border-radius: 50px; padding: 4px;
-        margin-bottom: 1.5rem;
-    }}
-    .tab-pill {{
-        flex: 1; text-align: center;
-        padding: 0.5rem; border-radius: 50px;
-        font-family: 'Inter', sans-serif;
-        font-size: 0.85rem; font-weight: 500;
-        color: #5B5A7A; cursor: pointer;
-        transition: all 0.2s;
-    }}
-    .tab-pill.active {{
-        background: white;
-        color: #3B4CC7; font-weight: 600;
-        box-shadow: 0 2px 8px rgba(76,60,240,0.15);
-    }}
+/* Colonne droite */
+.login-right {
+    padding: 2.5rem 2rem;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+}
+.tab-pills {
+    display: flex; background: #EAE8FB;
+    border-radius: 50px; padding: 4px;
+    margin-bottom: 1.5rem;
+}
+.tab-pill {
+    flex: 1; text-align: center;
+    padding: 0.5rem; border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem; font-weight: 500;
+    color: #5B5A7A; cursor: pointer;
+    transition: all 0.2s;
+}
+.tab-pill.active {
+    background: white;
+    color: #3B4CC7; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(76,60,240,0.15);
+}
 
-    /* Espace patient */
-    .wait-card {{
-        background: #E3FBF4; border-radius: 16px;
-        padding: 1.25rem; margin-bottom: 1rem;
-        border-left: 4px solid #17C3A2;
-    }}
-    .wait-status {{
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.3rem; font-weight: 700; color: #0E9B7F;
-    }}
-    .wait-msg {{
-        font-family: 'Inter', sans-serif;
-        font-size: 0.82rem; color: #5B5A7A; margin-top: 0.3rem;
-    }}
-    .info-item {{
-        display: flex; align-items: center; gap: 0.75rem;
-        margin: 0.6rem 0;
-        font-family: 'Inter', sans-serif;
-        font-size: 0.85rem; color: #1C1B3A;
-    }}
-    .info-icon {{
-        width: 32px; height: 32px;
-        background: #EAE8FB; border-radius: 8px;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 0.9rem; flex-shrink: 0;
-    }}
+/* Espace patient */
+.wait-card {
+    background: #E3FBF4; border-radius: 16px;
+    padding: 1.25rem; margin-bottom: 1rem;
+    border-left: 4px solid #17C3A2;
+}
+.wait-status {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem; font-weight: 700; color: #0E9B7F;
+}
+.wait-msg {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem; color: #5B5A7A; margin-top: 0.3rem;
+}
+.info-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin: 0.6rem 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem; color: #1C1B3A;
+}
+.info-icon {
+    width: 32px; height: 32px;
+    background: #EAE8FB; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; flex-shrink: 0;
+}
 
-    /* Formulaire connexion */
-    .form-label {{
-        font-family: 'Inter', sans-serif;
-        font-size: 0.82rem; font-weight: 500;
-        color: #1C1B3A; margin-bottom: 0.3rem;
-        display: block;
-    }}
-    .form-input {{
-        width: 100%; padding: 0.75rem 1rem;
-        border: 1.5px solid #EAE8FB;
-        border-radius: 12px; font-size: 0.9rem;
-        font-family: 'Inter', sans-serif;
-        color: #1C1B3A; outline: none;
-        transition: border-color 0.2s;
-        box-sizing: border-box;
-        margin-bottom: 1rem;
-    }}
-    .form-input:focus {{ border-color: #7C6BF0; }}
-    .btn-connect {{
-        width: 100%; padding: 0.875rem;
-        background: linear-gradient(135deg, #7C6BF0, #3B4CC7);
-        color: white; border: none; border-radius: 14px;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1rem; font-weight: 600;
-        cursor: pointer; margin-top: 0.5rem;
-        box-shadow: 0 6px 20px rgba(76,60,240,0.3);
-        transition: opacity 0.2s;
-    }}
-    .btn-connect:hover {{ opacity: 0.92; }}
-    .form-footer {{
-        display: flex; justify-content: space-between;
-        align-items: center; margin: 0.5rem 0;
-        font-family: 'Inter', sans-serif; font-size: 0.8rem;
-    }}
-    .form-footer a {{ color: #7C6BF0; text-decoration: none; }}
-    .error-msg {{
-        background: #FFF0F0; border: 1px solid #F0555F;
-        border-radius: 10px; padding: 0.75rem 1rem;
-        color: #F0555F; font-family: 'Inter', sans-serif;
-        font-size: 0.85rem; margin-top: 0.5rem;
-    }}
+/* Formulaire connexion */
+.form-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem; font-weight: 500;
+    color: #1C1B3A; margin-bottom: 0.3rem;
+    display: block;
+}
+.form-input {
+    width: 100%; padding: 0.75rem 1rem;
+    border: 1.5px solid #EAE8FB;
+    border-radius: 12px; font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    color: #1C1B3A; outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+.form-input:focus { border-color: #7C6BF0; }
+.btn-connect {
+    width: 100%; padding: 0.875rem;
+    background: linear-gradient(135deg, #7C6BF0, #3B4CC7);
+    color: white; border: none; border-radius: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem; font-weight: 600;
+    cursor: pointer; margin-top: 0.5rem;
+    box-shadow: 0 6px 20px rgba(76,60,240,0.3);
+    transition: opacity 0.2s;
+}
+.btn-connect:hover { opacity: 0.92; }
+.form-footer {
+    display: flex; justify-content: space-between;
+    align-items: center; margin: 0.5rem 0;
+    font-family: 'Inter', sans-serif; font-size: 0.8rem;
+}
+.form-footer a { color: #7C6BF0; text-decoration: none; }
+.error-msg {
+    background: #FFF0F0; border: 1px solid #F0555F;
+    border-radius: 10px; padding: 0.75rem 1rem;
+    color: #F0555F; font-family: 'Inter', sans-serif;
+    font-size: 0.85rem; margin-top: 0.5rem;
+}
 
-    /* Cacher éléments Streamlit */
-    #MainMenu, footer, header {{ visibility: hidden; }}
-    .block-container {{ padding-top: 1rem !important; }}
-    </style>
+/* Cacher éléments Streamlit */
+#MainMenu, footer, header { visibility: hidden; }
+.block-container { padding-top: 1rem !important; }
+</style>
     """, unsafe_allow_html=True)
 
     # Calcul temps d'attente public
@@ -523,117 +523,117 @@ if not st.session_state.connecte:
         wait_icon = "🔴"; wait_msg = "Forte affluence — Évitez si possible."
 
     st.markdown(f"""
-    <div class="login-wrapper">
-      <div class="login-card">
+<div class="login-wrapper">
+  <div class="login-card">
 
-        <!-- COLONNE GAUCHE -->
-        <div class="login-left">
-          <div class="circle1"></div>
-          <div class="circle2"></div>
-          <div class="login-logo">👁️</div>
-          <div class="login-brand">SAD — HPD</div>
-          <div class="login-tagline">Voir plus loin, soigner mieux</div>
-          <div class="login-desc">
-            Système d'Aide à la Décision pour le service d'ophtalmologie
-            de l'Hôpital Principal de Dakar. Analyse et réduction des
-            temps d'attente par modélisation M/M/c.
-          </div>
-          <div class="eye-illustration">👁️‍🗨️</div>
-          <div class="stat-grid">
-            <div class="stat-card">
-              <div class="stat-val">420</div>
-              <div class="stat-lbl">Lits disponibles</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-val">24h/7j</div>
-              <div class="stat-lbl">Service ouvert</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-val">Niv. 3</div>
-              <div class="stat-lbl">Hôpital référence</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-val">9</div>
-              <div class="stat-lbl">Médecins</div>
-            </div>
-          </div>
-          <div class="login-address">📍 1, Avenue Nelson Mandela, Dakar-Plateau</div>
+    <!-- COLONNE GAUCHE -->
+    <div class="login-left">
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+      <div class="login-logo">👁️</div>
+      <div class="login-brand">SAD — HPD</div>
+      <div class="login-tagline">Voir plus loin, soigner mieux</div>
+      <div class="login-desc">
+        Système d'Aide à la Décision pour le service d'ophtalmologie
+        de l'Hôpital Principal de Dakar. Analyse et réduction des
+        temps d'attente par modélisation M/M/c.
+      </div>
+      <div class="eye-illustration">👁️‍🗨️</div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-val">420</div>
+          <div class="stat-lbl">Lits disponibles</div>
         </div>
+        <div class="stat-card">
+          <div class="stat-val">24h/7j</div>
+          <div class="stat-lbl">Service ouvert</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">Niv. 3</div>
+          <div class="stat-lbl">Hôpital référence</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">9</div>
+          <div class="stat-lbl">Médecins</div>
+        </div>
+      </div>
+      <div class="login-address">📍 1, Avenue Nelson Mandela, Dakar-Plateau</div>
+    </div>
 
-        <!-- COLONNE DROITE -->
-        <div class="login-right">
-          <div class="tab-pills">
-            <div class="tab-pill active" id="tab-patient" onclick="showTab('patient')">🏥 Espace Patient</div>
-            <div class="tab-pill" id="tab-connect" onclick="showTab('connect')">🔐 Connexion Personnel</div>
-          </div>
+    <!-- COLONNE DROITE -->
+    <div class="login-right">
+      <div class="tab-pills">
+        <div class="tab-pill active" id="tab-patient" onclick="showTab('patient')">🏥 Espace Patient</div>
+        <div class="tab-pill" id="tab-connect" onclick="showTab('connect')">🔐 Connexion Personnel</div>
+      </div>
 
-          <!-- ESPACE PATIENT -->
-          <div id="panel-patient">
-            <div style="background:{wait_bg}; border-radius:16px; padding:1.25rem;
-                 margin-bottom:1rem; border-left:4px solid {wait_color};">
-              <div style="font-size:1.5rem;">{wait_icon}</div>
-              <div style="font-family:Poppins,sans-serif; font-size:1.3rem;
-                   font-weight:700; color:{wait_color};">
-                Attente estimée : {wq_pub:.0f} min
-              </div>
-              <div style="font-family:Inter,sans-serif; font-size:0.82rem;
-                   color:#5B5A7A; margin-top:0.3rem;">{wait_msg}</div>
-            </div>
-            <div class="info-item">
-              <div class="info-icon">⏰</div>
-              <span><b>Horaires :</b> Lundi – Vendredi · 7h00 – 17h00</span>
-            </div>
-            <div class="info-item">
-              <div class="info-icon">📍</div>
-              <span><b>Adresse :</b> 1, Avenue Nelson Mandela, Dakar-Plateau</span>
-            </div>
-            <div class="info-item">
-              <div class="info-icon">📞</div>
-              <span><b>Contact :</b> +221 33 839 50 00</span>
-            </div>
+      <!-- ESPACE PATIENT -->
+      <div id="panel-patient">
+        <div style="background:{wait_bg}; border-radius:16px; padding:1.25rem;
+             margin-bottom:1rem; border-left:4px solid {wait_color};">
+          <div style="font-size:1.5rem;">{wait_icon}</div>
+          <div style="font-family:Poppins,sans-serif; font-size:1.3rem;
+               font-weight:700; color:{wait_color};">
+            Attente estimée : {wq_pub:.0f} min
           </div>
+          <div style="font-family:Inter,sans-serif; font-size:0.82rem;
+               color:#5B5A7A; margin-top:0.3rem;">{wait_msg}</div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">⏰</div>
+          <span><b>Horaires :</b> Lundi – Vendredi · 7h00 – 17h00</span>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <span><b>Adresse :</b> 1, Avenue Nelson Mandela, Dakar-Plateau</span>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <span><b>Contact :</b> +221 33 839 50 00</span>
+        </div>
+      </div>
 
-          <!-- ESPACE CONNEXION -->
-          <div id="panel-connect" style="display:none;">
-            <div style="font-family:Poppins,sans-serif; font-size:1.2rem;
-                 font-weight:700; color:#1C1B3A; margin-bottom:0.25rem;">
-              Bon retour 👋
-            </div>
-            <div style="font-family:Inter,sans-serif; font-size:0.85rem;
-                 color:#5B5A7A; margin-bottom:1.5rem;">
-              Connectez-vous pour accéder au tableau de bord
-            </div>
-            <form id="loginForm">
-              <label class="form-label">Identifiant</label>
-              <input class="form-input" type="text" id="loginInput"
-                     placeholder="Entrez votre identifiant">
-              <label class="form-label">Mot de passe</label>
-              <input class="form-input" type="password" id="mdpInput"
-                     placeholder="••••••••••">
-              <div class="form-footer">
-                <label style="display:flex;align-items:center;gap:6px;color:#5B5A7A;">
-                  <input type="checkbox" style="accent-color:#7C6BF0;">
-                  Se souvenir de moi
-                </label>
-                <a href="#">Mot de passe oublié ?</a>
-              </div>
-            </form>
-            <div id="error-msg" style="display:none;" class="error-msg">
-              ❌ Identifiant ou mot de passe incorrect !
-            </div>
+      <!-- ESPACE CONNEXION -->
+      <div id="panel-connect" style="display:none;">
+        <div style="font-family:Poppins,sans-serif; font-size:1.2rem;
+             font-weight:700; color:#1C1B3A; margin-bottom:0.25rem;">
+          Bon retour 👋
+        </div>
+        <div style="font-family:Inter,sans-serif; font-size:0.85rem;
+             color:#5B5A7A; margin-bottom:1.5rem;">
+          Connectez-vous pour accéder au tableau de bord
+        </div>
+        <form id="loginForm">
+          <label class="form-label">Identifiant</label>
+          <input class="form-input" type="text" id="loginInput"
+                 placeholder="Entrez votre identifiant">
+          <label class="form-label">Mot de passe</label>
+          <input class="form-input" type="password" id="mdpInput"
+                 placeholder="••••••••••">
+          <div class="form-footer">
+            <label style="display:flex;align-items:center;gap:6px;color:#5B5A7A;">
+              <input type="checkbox" style="accent-color:#7C6BF0;">
+              Se souvenir de moi
+            </label>
+            <a href="#">Mot de passe oublié ?</a>
           </div>
+        </form>
+        <div id="error-msg" style="display:none;" class="error-msg">
+          ❌ Identifiant ou mot de passe incorrect !
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <script>
-    function showTab(tab) {{
-      document.getElementById('panel-patient').style.display = tab === 'patient' ? 'block' : 'none';
-      document.getElementById('panel-connect').style.display = tab === 'connect' ? 'block' : 'none';
-      document.getElementById('tab-patient').className = 'tab-pill' + (tab === 'patient' ? ' active' : '');
-      document.getElementById('tab-connect').className = 'tab-pill' + (tab === 'connect' ? ' active' : '');
-    }}
-    </script>
+<script>
+function showTab(tab) {{
+  document.getElementById('panel-patient').style.display = tab === 'patient' ? 'block' : 'none';
+  document.getElementById('panel-connect').style.display = tab === 'connect' ? 'block' : 'none';
+  document.getElementById('tab-patient').className = 'tab-pill' + (tab === 'patient' ? ' active' : '');
+  document.getElementById('tab-connect').className = 'tab-pill' + (tab === 'connect' ? ' active' : '');
+}}
+</script>
     """, unsafe_allow_html=True)
 
     # Bouton connexion Streamlit (sous le HTML)
@@ -919,21 +919,14 @@ elif page == "📊  Tableau de bord":
         fig = go.Figure(go.Bar(
             x=labels_heures, y=flux_horaire,
             marker_color=couleurs_bar,
-            text=flux_horaire, textposition="inside",
-            textfont=dict(size=13, color="white", family="Times New Roman")
+            text=flux_horaire, textposition="outside"
         ))
         fig.update_layout(
             height=300, showlegend=False,
             plot_bgcolor="white", paper_bgcolor="white",
             font=dict(color="#374151", size=11),
-            xaxis=dict(
-                gridcolor="#F3F4F6",
-                tickfont=dict(size=13, color="black", family="Times New Roman")
-            ),
-            yaxis=dict(
-                gridcolor="#F3F4F6", title="Patients/heure",
-                tickfont=dict(size=12, color="black", family="Times New Roman")
-            ),
+            xaxis=dict(gridcolor="#F3F4F6"),
+            yaxis=dict(gridcolor="#F3F4F6", title="Patients/heure"),
             margin=dict(t=20, b=20)
         )
         st.plotly_chart(fig, use_container_width=True)
@@ -966,14 +959,8 @@ elif page == "📊  Tableau de bord":
             height=300, showlegend=False,
             plot_bgcolor="white", paper_bgcolor="white",
             font=dict(color="#374151", size=11),
-            xaxis=dict(
-                gridcolor="#F3F4F6",
-                tickfont=dict(size=13, color="black", family="Times New Roman")
-            ),
-            yaxis=dict(
-                gridcolor="#F3F4F6", title="Wq (minutes)",
-                tickfont=dict(size=12, color="black", family="Times New Roman")
-            ),
+            xaxis=dict(gridcolor="#F3F4F6"),
+            yaxis=dict(gridcolor="#F3F4F6", title="Wq (minutes)"),
             margin=dict(t=20, b=20)
         )
         st.plotly_chart(fig2, use_container_width=True)
@@ -1094,16 +1081,13 @@ elif page == "⚙️  Simulateur M/M/c":
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("<p style='color:#1B3A6B; font-weight:600; font-size:0.85rem;'>λ — Patients arrivant par heure</p>", unsafe_allow_html=True)
-        lambda_val = st.slider("", 1.0, 20.0, 8.0, 0.5, key="lambda")
+        lambda_val = st.slider("λ — Arrivées (patients/heure)", 1.0, 20.0, 8.0, 0.5)
         st.caption(f"= {lambda_val/60:.2f} patients/minute")
     with col2:
-        st.markdown("<p style='color:#1B3A6B; font-weight:600; font-size:0.85rem;'>μ — Patients consultés par heure par médecin</p>", unsafe_allow_html=True)
-        mu_val = st.slider("", 0.5, 4.0, 2.0, 0.5, key="mu")
+        mu_val = st.slider("μ — Consultations (patients/heure/médecin)", 0.5, 4.0, 2.0, 0.5)
         st.caption(f"Durée moy. : {60/mu_val:.0f} min/consultation")
     with col3:
-        st.markdown("<p style='color:#1B3A6B; font-weight:600; font-size:0.85rem;'>c — Nombre de médecins en service</p>", unsafe_allow_html=True)
-        c_val = st.slider("", 1, 9, 3, key="c")
+        c_val = st.slider("c — Nombre de médecins", 1, 9, 3)
 
     st.markdown('</div>', unsafe_allow_html=True)
 
