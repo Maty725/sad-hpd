@@ -187,14 +187,25 @@ st.markdown("""
 # ── Connexion PostgreSQL ──────────────────────────────────────────────────────
 def get_connection():
     try:
-        return psycopg2.connect(
-            host="localhost",
-            port=5432,
-            dbname="sad_hpd",
-            user="postgres",
-            password="Sanoisbae1234$"
-        )
-    except:
+        if "postgres" in st.secrets:
+            # Connexion via les Secrets Streamlit Cloud (Supabase en ligne)
+            return psycopg2.connect(
+                host=st.secrets["postgres"]["host"],
+                port=st.secrets["postgres"]["port"],
+                dbname=st.secrets["postgres"]["dbname"],
+                user=st.secrets["postgres"]["user"],
+                password=st.secrets["postgres"]["password"]
+            )
+        else:
+            # Connexion locale (développement sur ton PC)
+            return psycopg2.connect(
+                host="localhost",
+                port=5432,
+                dbname="sad_hpd",
+                user="postgres",
+                password="Sanoisbae1234$"
+            )
+    except Exception:
         return None
 
 def get_medecins():
