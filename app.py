@@ -320,11 +320,11 @@ if "connecte" not in st.session_state:
 # ── PAGE DE CONNEXION ─────────────────────────────────────────────────────────
 if not st.session_state.connecte:
 
-    st.markdown("""
+    st.markdown(f"""
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
-    .stApp { background: #F3F2FC !important; }
-    [data-testid="stSidebar"] { display: none; }
+    .stApp {{ background: #F3F2FC !important; }}
+    [data-testid="stSidebar"] {{ display: none; }}
 
     .login-wrapper {
         display: flex;
@@ -919,14 +919,21 @@ elif page == "📊  Tableau de bord":
         fig = go.Figure(go.Bar(
             x=labels_heures, y=flux_horaire,
             marker_color=couleurs_bar,
-            text=flux_horaire, textposition="outside"
+            text=flux_horaire, textposition="inside",
+            textfont=dict(size=13, color="white", family="Times New Roman")
         ))
         fig.update_layout(
             height=300, showlegend=False,
             plot_bgcolor="white", paper_bgcolor="white",
             font=dict(color="#374151", size=11),
-            xaxis=dict(gridcolor="#F3F4F6"),
-            yaxis=dict(gridcolor="#F3F4F6", title="Patients/heure"),
+            xaxis=dict(
+                gridcolor="#F3F4F6",
+                tickfont=dict(size=13, color="black", family="Times New Roman")
+            ),
+            yaxis=dict(
+                gridcolor="#F3F4F6", title="Patients/heure",
+                tickfont=dict(size=12, color="black", family="Times New Roman")
+            ),
             margin=dict(t=20, b=20)
         )
         st.plotly_chart(fig, use_container_width=True)
@@ -959,8 +966,14 @@ elif page == "📊  Tableau de bord":
             height=300, showlegend=False,
             plot_bgcolor="white", paper_bgcolor="white",
             font=dict(color="#374151", size=11),
-            xaxis=dict(gridcolor="#F3F4F6"),
-            yaxis=dict(gridcolor="#F3F4F6", title="Wq (minutes)"),
+            xaxis=dict(
+                gridcolor="#F3F4F6",
+                tickfont=dict(size=13, color="black", family="Times New Roman")
+            ),
+            yaxis=dict(
+                gridcolor="#F3F4F6", title="Wq (minutes)",
+                tickfont=dict(size=12, color="black", family="Times New Roman")
+            ),
             margin=dict(t=20, b=20)
         )
         st.plotly_chart(fig2, use_container_width=True)
@@ -1081,13 +1094,16 @@ elif page == "⚙️  Simulateur M/M/c":
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        lambda_val = st.slider("λ — Arrivées (patients/heure)", 1.0, 20.0, 8.0, 0.5)
+        st.markdown("<p style='color:#1B3A6B; font-weight:600; font-size:0.85rem;'>λ — Patients arrivant par heure</p>", unsafe_allow_html=True)
+        lambda_val = st.slider("", 1.0, 20.0, 8.0, 0.5, key="lambda")
         st.caption(f"= {lambda_val/60:.2f} patients/minute")
     with col2:
-        mu_val = st.slider("μ — Consultations (patients/heure/médecin)", 0.5, 4.0, 2.0, 0.5)
+        st.markdown("<p style='color:#1B3A6B; font-weight:600; font-size:0.85rem;'>μ — Patients consultés par heure par médecin</p>", unsafe_allow_html=True)
+        mu_val = st.slider("", 0.5, 4.0, 2.0, 0.5, key="mu")
         st.caption(f"Durée moy. : {60/mu_val:.0f} min/consultation")
     with col3:
-        c_val = st.slider("c — Nombre de médecins", 1, 9, 3)
+        st.markdown("<p style='color:#1B3A6B; font-weight:600; font-size:0.85rem;'>c — Nombre de médecins en service</p>", unsafe_allow_html=True)
+        c_val = st.slider("", 1, 9, 3, key="c")
 
     st.markdown('</div>', unsafe_allow_html=True)
 
