@@ -1232,3 +1232,8 @@ elif page == "👑  Administration":
             st.warning("⚠️ Remplissez tous les champs !")
 
     st.markdown('</div>', unsafe_allow_html=True)
+
+
+
+
+
