@@ -449,7 +449,7 @@ if not st.session_state.connecte:
 '<div style="color:white;font-weight:700;font-size:1.05rem;">Niveau 3</div>'
 '<div style="color:rgba(255,255,255,0.72);font-size:0.7rem;">Hôpital de référence</div></div>'
 '<div style="background:rgba(255,255,255,0.14);border-radius:12px;padding:0.7rem 0.8rem;">'
-'<div style="color:white;font-weight:700;font-size:1.05rem;">03</div>'
+'<div style="color:white;font-weight:700;font-size:1.05rem;">04</div>'
 '<div style="color:rgba(255,255,255,0.72);font-size:0.7rem;">Médecins en service</div></div>'
 '</div>'
 '<div style="color:rgba(255,255,255,0.75);font-size:0.75rem;margin-top:1.6rem;">'
@@ -474,7 +474,7 @@ if not st.session_state.connecte:
                     )
                     st.markdown(intro_html, unsafe_allow_html=True)
 
-                    r_public = calcul_mmc(5.0, 2.0, 3)
+                    r_public = calcul_mmc(11.0, 3.0, 4)
                     if r_public and r_public["stable"]:
                         wq_public = r_public["wq"]
                         if wq_public < 20:
@@ -606,7 +606,7 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("<div style='color:rgba(255,255,255,0.8); font-size:0.85rem; font-weight:600;'>⚙️ Paramètres</div>",
                 unsafe_allow_html=True)
-    nb_medecins = st.slider("Médecins en service", 1, 9, 3)
+    nb_medecins = st.slider("Médecins en service", 1, 9, 4)
 
     st.markdown("---")
 
@@ -748,8 +748,8 @@ elif page == "📊  Tableau de bord":
     </div>
     """, unsafe_allow_html=True)
 
-    lambda_moy = 8.0
-    mu_moy = 2.0
+    lambda_moy = 11.0
+    mu_moy = 3.0
     res = calcul_mmc(lambda_moy, mu_moy, nb_medecins)
 
     wq = res["wq"] if res and res["stable"] else 999
@@ -846,7 +846,7 @@ elif page == "📊  Tableau de bord":
                     unsafe_allow_html=True)
         wq_par_heure = []
         for flux in flux_horaire:
-            r = calcul_mmc(flux, 2.0, nb_medecins)
+            r = calcul_mmc(flux, 3.0, nb_medecins)
             wq_par_heure.append(min(r["wq"], 90) if r and r["stable"] else 90)
 
         couleurs_line = ["#EF4444" if w > 40 else "#F59E0B" if w > 20 else "#10B981"
@@ -985,13 +985,13 @@ elif page == "⚙️  Simulateur M/M/c":
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        lambda_val = st.slider("λ — Arrivées (patients/heure)", 1.0, 20.0, 8.0, 0.5)
+        lambda_val = st.slider("λ — Arrivées (patients/heure)", 1.0, 20.0, 11.0, 0.5)
         st.caption(f"= {lambda_val/60:.2f} patients/minute")
     with col2:
-        mu_val = st.slider("μ — Consultations (patients/heure/médecin)", 0.5, 4.0, 2.0, 0.5)
+        mu_val = st.slider("μ — Consultations (patients/heure/médecin)", 0.5, 4.0, 3.0, 0.5)
         st.caption(f"Durée moy. : {60/mu_val:.0f} min/consultation")
     with col3:
-        c_val = st.slider("c — Nombre de médecins", 1, 9, 3)
+        c_val = st.slider("c — Nombre de médecins", 1, 9, 4)
 
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -1232,8 +1232,3 @@ elif page == "👑  Administration":
             st.warning("⚠️ Remplissez tous les champs !")
 
     st.markdown('</div>', unsafe_allow_html=True)
-
-
-
-
-
