@@ -930,6 +930,15 @@ elif page == "👥  Équipe médicale":
             </div>
             """, unsafe_allow_html=True)
 
+        st.markdown(
+'<div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;'
+'padding:0.9rem 1.1rem;margin-top:0.75rem;color:#1E40AF;font-size:0.85rem;">'
+'ℹ️ Bien que l\'équipe médicale du service compte 9 praticiens au total, seuls '
+'2 à 4 médecins sont mobilisés simultanément selon les jours, en raison des '
+'rotations et plannings de garde.</div>',
+            unsafe_allow_html=True
+        )
+
         st.markdown("<br>", unsafe_allow_html=True)
 
         st.markdown('<div class="card">', unsafe_allow_html=True)
