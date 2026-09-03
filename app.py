@@ -175,6 +175,15 @@ st.markdown("""
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         border: 1px solid #F0F0F0;
     }
+    [data-testid="stMetricValue"] {
+        color: #1B3A6B !important;
+    }
+    [data-testid="stMetricLabel"] {
+        color: #374151 !important;
+    }
+    [data-testid="stMetricLabel"] p {
+        color: #374151 !important;
+    }
 
     /* Divider */
     hr { border-color: #E5E7EB; }
@@ -687,7 +696,7 @@ if page == "🏠  Accueil":
         de l'Hôpital Principal de Dakar.
 
         Il repose sur la **théorie des files d'attente** (modèle M/M/c), une base de données
-        **PostgreSQL**, une simulation **Python/SimPy** et une interface web **Streamlit**.
+        **PostgreSQL** et une interface web **Streamlit**.
         """)
         st.markdown('</div>', unsafe_allow_html=True)
 
@@ -695,10 +704,10 @@ if page == "🏠  Accueil":
         st.markdown('<div class="section-title">⚠️ Problèmes identifiés</div>', unsafe_allow_html=True)
 
         problemes = [
-            ("🔴", "Temps d'attente élevés dès 7h le matin"),
+            ("🔴", "Temps d'attente élevés dès 8h le matin"),
             ("🔴", "Gestion manuelle des dossiers patients"),
             ("🟡", "Absence d'outils numériques de suivi"),
-            ("🟡", "Patients qui repartent sans consultation (LWBS)"),
+            ("🟡", "Patients qui repartent sans consultation (taux d'abandon)"),
             ("🟡", "Affectation intuitive des médecins"),
         ]
         for icon, texte in problemes:
@@ -724,7 +733,6 @@ if page == "🏠  Accueil":
         techs = [
             ("🐍", "Python 3.11", "blue"),
             ("🗄️", "PostgreSQL 16", "green"),
-            ("⚙️", "SimPy", "purple"),
             ("🌐", "Streamlit", "orange"),
         ]
         for icon, nom, couleur in techs:
@@ -1140,8 +1148,8 @@ elif page == "💡  Recommandations":
     with col1:
         st.markdown("""
         <div class="success-box">
-        <b>✅ Priorité 1 — Renforcement des effectifs dès 7h</b><br>
-        Ouvrir des postes supplémentaires dès 7h le matin, heure
+        <b>✅ Priorité 1 — Renforcement des effectifs dès 8h</b><br>
+        Ouvrir des postes supplémentaires dès 8h le matin, heure
         de forte affluence. Applicable par réaménagement des plannings
         sans recrutement supplémentaire.
         </div>
@@ -1158,9 +1166,9 @@ elif page == "💡  Recommandations":
     with col2:
         st.markdown("""
         <div class="warning-box">
-        <b>⚠️ Priorité 2 — Amélioration du triage</b><br>
-        Former le personnel d'accueil à un triage plus rapide.
-        Réduire la durée de triage permet de fluidifier
+        <b>⚠️ Priorité 2 — Amélioration de l'accueil</b><br>
+        Former le personnel d'accueil à une prise en charge plus rapide.
+        Réduire la durée d'accueil permet de fluidifier
         significativement le circuit patient.
         </div>
         """, unsafe_allow_html=True)
@@ -1168,8 +1176,8 @@ elif page == "💡  Recommandations":
         st.markdown("""
         <div class="success-box">
         <b>💰 Budget estimatif</b><br>
-        Total : <b>906 000 – 1 317 000 FCFA</b><br>
-        (≈ 1 380 – 2 010 €)<br>
+        Total : <b>856 600 – 1 267 600 FCFA</b><br>
+        (≈ 1 305 – 1 930 €)<br>
         Solution accessible grâce aux outils open source gratuits.
         </div>
         """, unsafe_allow_html=True)
