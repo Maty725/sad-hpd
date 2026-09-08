@@ -1,88 +1,88 @@
 # SAD — HPD : Système d'Aide à la Décision
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Supabase-336791)
-![Status](https://img.shields.io/badge/Status-Active-success)
+Projet d'analyse et d'optimisation des temps d'attente au **Service d'Ophtalmologie de l'Hôpital Principal de Dakar (HPD)**.
 
-## 📋 Description
+---
 
-Système d'Aide à la Décision (SAD) développé dans le cadre d'un projet professionnel de fin d'études, visant à analyser et réduire les temps d'attente au **Service d'Ophtalmologie de l'Hôpital Principal de Dakar (HPD)**.
+## Presentation du projet
 
-Le projet combine :
-- Une **enquête de satisfaction** auprès de 100 patients
-- Un **entretien avec le personnel médical** du service
-- Une **modélisation mathématique** basée sur la théorie des files d'attente (modèle M/M/c, formule d'Erlang C)
-- Une **application web interactive** pour visualiser les indicateurs et simuler des scénarios
+Ce systeme a ete developpe dans le cadre d'un projet de fin d'etudes en Statistique et Informatique Decisionnelle. Il permet d'analyser les flux de patients et de simuler des scenarios d'organisation pour reduire l'attente aux consultations.
 
-## 🎯 Fonctionnalités
+Le travail s'appuie sur :
+- Une enquete de satisfaction menée auprès de 100 patients
+- Des entretiens avec le personnel medical du service
+- Une modelisation mathematique basée sur la theorie des files d'attente (modele M/M/c)
+- Une application web interactive sous Streamlit
 
-- **Espace Patient** : consultation du temps d'attente estimé en temps réel, sans connexion
-- **Tableau de bord** : indicateurs clés de performance (temps d'attente moyen, taux d'utilisation des médecins, flux horaire)
-- **Équipe médicale** : gestion et visualisation du personnel médical
-- **Simulateur M/M/c** : test interactif de scénarios (nombre de médecins, taux d'arrivée, durée de consultation)
-- **Recommandations** : pistes d'amélioration organisationnelle chiffrées
-- **Administration** : gestion des comptes utilisateurs (réservé aux administrateurs)
+---
 
-## 🛠️ Stack technique
+## Fonctionnalités
 
-| Composant | Technologie |
-|---|---|
-| Langage | Python 3.11 |
-| Interface web | Streamlit |
-| Base de données | PostgreSQL (hébergée sur Supabase) |
-| Modélisation | Théorie des files d'attente (Erlang, Kendall) |
-| Visualisation | Plotly |
-| Hébergement | Streamlit Community Cloud |
+- **Espace Patient** : consultation du temps d'attente estime en temps réel
+- **Tableau de bord** : suivi des indicateurs clés (temps d'attente moyen, taux d'occupation, flux horaire)
+- **Simulateur M/M/c** : test de scénarios d'affectation des médecins
+- **Analyse de sensibilité** : evaluation de l'impact des variations d'effectif
+- **Recommandations** : pistes d'amélioration organisationnelle
 
-## 📊 Modèle mathématique
+---
 
-Le système utilise le modèle **M/M/c** pour calculer :
-- **λ** (lambda) : taux d'arrivée des patients (patients/heure)
-- **μ** (mu) : taux de service par médecin (consultations/heure)
-- **c** : nombre de médecins disponibles
-- **ρ** (rho) : taux d'utilisation = λ / (c × μ)
-- **Wq** : temps d'attente moyen (formule d'Erlang C)
+## Stack technique
 
-## 📸 Aperçu de l'application
+- **Langage** : Python 3.11
+- **Interface** : Streamlit
+- **Base de données** : PostgreSQL (Supabase)
+- **Modélisation** : Théorie des files d'attente (Erlang C)
+- **Visualisation** : Plotly
+- **Hébergement** : Streamlit Community Cloud
 
-### Espace Patient
-![Espace patient](screenshots/login.png)
+---
 
-### Tableau de bord
+## Aperçu de l'application
+
+### Espace Patient & Connexion
+![Connexion](screenshots/login.png)
+
+### Tableau de bord principal
 ![Tableau de bord](screenshots/tableaubord.png)
 
-### Simulateur M/M/c
+### Analyse du flux horaire
+![Flux horaire](screenshots/flux.png)
+
+### Taux d'utilisation
+![Jauge d'utilisation](screenshots/jauge.png)
+
+### Analyse de sensibilité
+![Analyse de sensibilite](screenshots/analyse.png)
+
+### Simulateur de files d'attente
 ![Simulateur](screenshots/simulateur.png)
 
-## 🚀 Installation locale
+---
+
+## Installation locale
 
 ```bash
-git clone https://github.com/Maty725/sad-hpd.git
+git clone [https://github.com/Maty725/sad-hpd.git](https://github.com/Maty725/sad-hpd.git)
 cd sad-hpd
 pip install -r requirements.txt
 streamlit run app.py
-```
 
-## 📁 Structure du projet
 
+## Structure du projet
 
 sad-hpd/
-├── app.py # Application principale Streamlit
-├── requirements.txt # Dépendances Python
-├── screenshots/ # Captures d'écran de l'application
-└── README.md
+├── app.py
+├── requirements.txt
+├── .gitignore
+├── README.md
+└── screenshots/
+├── login.png
+├── tableaubord.png
+├── flux.png
+├── jauge.png
+├── analyse.png
+└── simulateur.png
 
 
-## 🌐 Démo en ligne
-
-L'application est accessible à l'adresse : [sad-hpd-ophtalmologie.streamlit.app](https://sad-hpd-ophtalmologie.streamlit.app)
-
-## 👤 Auteure
-
-**Maty Mbaye** — Bachelor Statistique et Informatique Décisionnelle
-Projet encadré par M. Khalidou Sy — BEM Dakar
-
-## 📄 Licence
-
-Projet académique — Hôpital Principal de Dakar, 2026
+Auteure
+Maty MBAYE
