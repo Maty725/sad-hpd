@@ -44,8 +44,10 @@ Le travail s'appuie sur :
 
 ## Aperçu de l'application
 
-### Espace Patient & Connexion
-![Connexion](screenshots/login.png)
+<p float="left">
+  <img src="screenshots/login.png" width="48%" alt="Espace Patient" />
+  <img src="screenshots/login_personnel.png" width="48%" alt="Connexion Personnel" />
+</p>
 
 ### Tableau de bord principal
 ![Tableau de bord](screenshots/tableaubord.png)
