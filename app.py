@@ -629,7 +629,6 @@ with st.sidebar:
     st.markdown("""
     <div style='color:rgba(255,255,255,0.5); font-size:0.7rem; text-align:center; margin-top:1rem;'>
         Mémoire fin d'études 2025–2026<br>
-        [Nom du Candidat]<br>
         Hôpital Principal de Dakar
     </div>
     """, unsafe_allow_html=True)
