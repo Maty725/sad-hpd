@@ -258,8 +258,8 @@ def calcul_mmc(lambda_h, mu_h, c):
     return {"stable": True, "rho": rho, "wq": wq_min, "lq": lq, "w": w_min, "ec": ec}
 
 # ── Données flux horaire ──────────────────────────────────────────────────────
-heures = list(range(7, 20))
-flux_horaire = [18, 22, 15, 10, 7, 5, 4, 6, 10, 12, 10, 7, 4]
+heures = list(range(8, 20))
+flux_horaire = [22, 15, 10, 7, 5, 4, 6, 10, 12, 10, 7, 4]
 labels_heures = [f"{h}h" for h in heures]
 
 # ── Système de connexion ──────────────────────────────────────────────────────
